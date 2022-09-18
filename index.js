@@ -15,9 +15,9 @@ app.use(express.json());
 app.use("/api/auth", userRoutes);
 app.use("/api/message", messageRoutes);
 
-app.get('/',(_req,res)=>{
-  res.send('App is running');
-})
+app.get("/", (_req, res) => {
+  res.send("App is running");
+});
 
 mongoose
   .connect(process.env.MONGO_URL)
@@ -33,7 +33,7 @@ const server = app.listen(process.env.PORT, () =>
 );
 const io = new Server(server, {
   cors: {
-    origin: "http://localhost:3000",
+    origin: "*",
     credentials: true,
   },
 });
